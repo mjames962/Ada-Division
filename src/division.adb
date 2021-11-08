@@ -1,6 +1,7 @@
 pragma SPARK_Mode (On);
 
-with AS_Io_Wrapper; use AS_Io_Wrapper;
+with AS_Io_Wrapper, SPARK.Text_IO;
+use AS_Io_Wrapper, SPARK.Text_IO;
 
 package body Division is
 
@@ -10,9 +11,8 @@ package body Division is
       quotient  : Integer;
 
    begin
-
-      quotient  := 0;
       remainder := dividend;
+      quotient  := 0;
 
       loop
          exit when divisor > remainder;
@@ -21,7 +21,7 @@ package body Division is
          quotient  := quotient + 1;
 
       end loop;
-      
+
       AS_Put_Line ("Quotient:");
       AS_Put_Line (quotient);
       AS_Put_Line ("Remainder:");
@@ -49,7 +49,7 @@ package body Division is
       AS_Put_Line ("Type in divisor");
       AS_Get (divisor, "Please type in an integer; please try again");
 
-      Division.div (dividend, divisor);
+      Division.div (dividend => dividend, divisor => divisor);
 
       null;
    end run;
