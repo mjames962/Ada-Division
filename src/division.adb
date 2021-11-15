@@ -58,8 +58,7 @@ package body Division is
       loop
          AS_Put_Line ("Type in a positive divisor");
          AS_Get (divisor, "Please type in an integer; please try again");
-         exit when divisor >= 1 and divisor <= Integer'Last and
-           divisor <= dividend;
+         exit when divisor >= 1 and divisor <= Integer'Last;
       end loop;
 
       Division.div

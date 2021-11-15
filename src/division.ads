@@ -10,10 +10,10 @@ package Division is
       quotient :    out Integer) with
       Depends => (remainder => (dividend, divisor),
        quotient => (divisor, dividend)),
-      Pre  => (dividend >= 0 and divisor >= 1 and dividend >= divisor),
+      Pre  => (dividend >= 0 and divisor >= 1),
       Post =>
       (remainder < divisor and
-       dividend = ((quotient * divisor) + remainder) and remainder >= 0);
+       dividend = ((quotient * divisor) + remainder) and remainder >= 0 and quotient >= 0);
 
    procedure run;
 
